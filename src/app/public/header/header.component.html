@@ -12,14 +12,16 @@
     <button mat-flat-button color="primary"><a [routerLink]="['/admin']"
         routerLinkActive="router-link-active">ADMIN</a></button>
   </mat-toolbar>
-  <mat-toolbar color="warn">
-    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"><a [routerLink]="['/home']"
-        routerLinkActive="router-link-active">Accueil</a></mat-icon>
-    <!-- <button color="primary"><a [routerLink]="['/movies']"
-        routerLinkActive="router-link-active">Films</a></button>
-    <button  color="primary"><a [routerLink]="['/contact']"
-        routerLinkActive="router-link-active">Contact</a></button>
-    <button color="primary"><a [routerLink]="['/admin']"
-        routerLinkActive="router-link-active">ADMIN</a></button> -->
+  <mat-toolbar color="primary">
+    <a mat-button [routerLink]="['/home']"
+      routerLinkActive="router-link-active"><fa-icon [icon]="faHouse"></fa-icon></a>
+      <a mat-button [routerLink]="['/movies']"
+        routerLinkActive="router-link-active"><fa-icon [icon]="faFilm"></fa-icon></a>
+
+          <a mat-button [routerLink]="['/contact']"
+            routerLinkActive="router-link-active"><fa-icon [icon]="faEnvelope"></fa-icon></a>
+            <a mat-button [routerLink]="['/admin']"
+              routerLinkActive="router-link-active"><fa-icon [icon]="faHouseUser"></fa-icon></a>
+
   </mat-toolbar>
 </header>

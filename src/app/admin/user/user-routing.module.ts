@@ -7,9 +7,9 @@ import { UserindexComponent } from './userindex/userindex.component';
 
 const routes: Routes = [
   {path:'',component:UserindexComponent},
-  {path:'edit/:id',component:UsereditComponent},
+  {path:'edit/:uid',component:UsereditComponent},
   {path:'add',component:UseraddComponent},
-  {path:'delete/:id',component:UserdeleteComponent}
+  {path:'delete/:uid',component:UserdeleteComponent}
 
 
 

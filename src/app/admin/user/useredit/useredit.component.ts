@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-useredit',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsereditComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ActRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.ActRoute.params.subscribe((data)=>{
+console.log(data);
+
+    })
   }
 
 }

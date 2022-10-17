@@ -1,1 +1,16 @@
-<p>sidemenu works!</p>
+<nav>
+  <a [routerLink]="['/']" routerLinkActive="router-link-active" class="simple-link">Retour ACCUEIL</a>
+  <ul id="sidemenu">
+    <li><a [routerLink]="['dashboard']" routerLinkActive="router-link-active" >Dashboard</a></li>
+    <li>--> Utilisateur</li>
+    <ul>
+      <li><a [routerLink]="['user']" routerLinkActive="router-link-active" >Liste</a></li>
+      <li><a [routerLink]="['user/add']" routerLinkActive="router-link-active" >Ajouter</a></li>
+    </ul>
+    <li>--> Films</li>
+    <ul>
+      <li><a [routerLink]="['movies']" routerLinkActive="router-link-active" >Liste</a></li>
+      <li><a [routerLink]="['movies/add']" routerLinkActive="router-link-active" >Ajouter</a></li>
+    </ul>
+  </ul>
+</nav>

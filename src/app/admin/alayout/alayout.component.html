@@ -1,7 +1,12 @@
-<div class="menu">
-  side menu
-</div>
-<div class="admin-container" style="border:2px solid red">
-<router-outlet></router-outlet>
+<app-aheader></app-aheader>
 
-</div>
+  <div class="admin-menu">
+    <div class="menu">
+      <app-sidemenu></app-sidemenu>
+    </div>
+    <div class="admin-container" style="border:2px solid red">
+    <router-outlet></router-outlet>
+
+    </div>
+  </div>
+
