@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TokenService } from 'src/app/_services/token.service';
 
 @Component({
   selector: 'app-aheader',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AheaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private tokenService: TokenService) { }
 
   ngOnInit(): void {
   }
-
+logOut():void{
+this.tokenService.clearToken()
+}
 }
