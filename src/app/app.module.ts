@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './_utils/page-not-found/page-not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { TokenInterceptorProvider } from './_helpers/token.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [TokenInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
