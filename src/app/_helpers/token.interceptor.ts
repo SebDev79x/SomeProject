@@ -6,7 +6,7 @@ import {
   HttpInterceptor,
   HTTP_INTERCEPTORS
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 import { TokenService } from '../_services/token.service';
 
 // Interceptor doit continuellement tourner, en toute autonomie (constamment actif)
@@ -26,8 +26,17 @@ export class TokenInterceptor implements HttpInterceptor {
       let clone = request.clone({
         headers: request.headers.set('Authorization', 'bearer ' + token)
       })
-      console.log("CLONE",clone);
-      return next.handle(clone);
+      console.log("CLONE", clone);
+      // Avant que l'interceptor ne relâche la requête, je lui ajoute une méca pour la réponse (pipe => ajout de la mécanique)
+      return next.handle(clone).pipe(
+        catchError(error => {
+          console.log(error);
+          if (error.status === 401) {
+            this.tokenService.clearTokenExpired()
+          }
+          return throwError('session expired')
+        })
+      );
     }
     return next.handle(request);
   }

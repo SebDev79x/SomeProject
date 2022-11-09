@@ -1,1 +1,32 @@
 <p>userindex works!</p>
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>Action</th>
+        <th>#</th>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Email</th>
+        <th>Pseudo</th>
+
+        <th>Date Création</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of usersList">
+        <!-- [routerLink]="['edit',user.id]" côté TS, Angular, pas besoin d'interpoler-->
+        <td> <a [routerLink]="['edit',user.id]" routerLinkActive="router-link-active">
+            <mat-icon>supervised_user_circle</mat-icon>
+          </a> </td>
+        <td>{{user.id}}</td>
+        <td>{{user.firstname}}</td>
+        <td>{{user.lastname}}</td>
+        <td>{{user.username}}</td>
+
+        <td>{{user.email}}</td>
+        <td>{{user.createdAt | date:'dd/MM/yyyy à HH:mm'}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

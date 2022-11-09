@@ -29,4 +29,8 @@ export class TokenService {
   getToken():string | null{
 return localStorage.getItem('token')
   }
+  clearTokenExpired():void{
+    localStorage.removeItem('token')
+    this.router.navigate(['auth'])
+      }
 }

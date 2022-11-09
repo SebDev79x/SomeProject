@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -8,13 +9,18 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UsereditComponent implements OnInit {
 
-  constructor(private ActRoute: ActivatedRoute) { }
+  constructor(private activatedRoute: ActivatedRoute, private http:HttpClient) { }
 
   ngOnInit(): void {
-    this.ActRoute.params.subscribe((data)=>{
-console.log(data);
+    let userId = this.activatedRoute.snapshot.paramMap.get('userId')
+    console.log("userId",userId);
+/*     this.http.get('http://localhost:3000/user/'+id).subscribe((data)=>{
+      console.log(data);
 
-    })
+    }) */
+/*     this.activatedRoute.params.subscribe((data)=>{
+console.log(data);
+    }) */
   }
 
 }

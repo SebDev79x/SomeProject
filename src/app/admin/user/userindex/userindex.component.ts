@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-
+import { MatIcon } from '@angular/material/icon';
 @Component({
   selector: 'app-userindex',
   templateUrl: './userindex.component.html',
   styleUrls: ['./userindex.component.scss']
 })
 export class UserindexComponent implements OnInit {
-
+public usersList:any[]=[]
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
@@ -15,8 +15,14 @@ export class UserindexComponent implements OnInit {
     // Avant que ce soit envoyé au serveur (ici, l'api)
     // Interception de la requête (il va lui ajouter le token avant de tout renvoyer)
     this.http.get('http://localhost:3000/users').subscribe(
-      data => console.log(data),
-      err => console.log(err)
+      (users:any) => {
+        console.log("data",users)
+
+      console.log("data.usersList",users.list)
+      this.usersList = users.list
+      console.log("userlist", this.usersList);
+
+      }
     )
   }
 

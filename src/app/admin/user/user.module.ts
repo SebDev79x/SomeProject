@@ -6,6 +6,7 @@ import { UserindexComponent } from './userindex/userindex.component';
 import { UsereditComponent } from './useredit/useredit.component';
 import { UseraddComponent } from './useradd/useradd.component';
 import { UserdeleteComponent } from './userdelete/userdelete.component';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { UserdeleteComponent } from './userdelete/userdelete.component';
   ],
   imports: [
     CommonModule,
-    UserRoutingModule
+    UserRoutingModule,
+    MatIconModule
   ]
 })
 export class UserModule { }
