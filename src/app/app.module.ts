@@ -6,16 +6,20 @@ import { PageNotFoundComponent } from './_utils/page-not-found/page-not-found.co
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { TokenInterceptorProvider } from './_helpers/token.interceptor';
-@NgModule({
+import { MatButtonModule } from '@angular/material/button';
+/* import { TmdbListComponent } from './movies/tmdb-list/tmdb-list.component';
+ */@NgModule({
   declarations: [
     AppComponent,
-    PageNotFoundComponent
-  ],
+    PageNotFoundComponent,
+/*     TmdbListComponent
+ */  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule
   ],
   providers: [TokenInterceptorProvider],
   bootstrap: [AppComponent]

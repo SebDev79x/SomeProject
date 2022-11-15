@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { IUser } from 'src/app/_interfaces/user';
+import { UserService } from 'src/app/_services/user.service';
 
 @Component({
   selector: 'app-useredit',
@@ -8,19 +9,28 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./useredit.component.scss']
 })
 export class UsereditComponent implements OnInit {
-
-  constructor(private activatedRoute: ActivatedRoute, private http:HttpClient) { }
+  user: IUser = {
+    id: 0,
+    firstname: '',
+    lastname: '',
+    username: '',
+    email: '',
+    password: '',
+    createdAt: '',
+    deletedAt: null,
+    updatedAt: ''
+  }
+  constructor(private activatedRoute: ActivatedRoute, private userService: UserService) { }
 
   ngOnInit(): void {
     let userId = this.activatedRoute.snapshot.paramMap.get('userId')
-    console.log("userId",userId);
-/*     this.http.get('http://localhost:3000/user/'+id).subscribe((data)=>{
-      console.log(data);
+    this.userService.getOneUser(userId).subscribe((data) => {
+      this.user = data.data
+    })
 
-    }) */
-/*     this.activatedRoute.params.subscribe((data)=>{
-console.log(data);
-    }) */
   }
+  onSubmit(): void {
+    console.log("ONSUBMIT",this.user);
 
+  }
 }

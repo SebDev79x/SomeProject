@@ -10,9 +10,9 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { fas } from '@fortawesome/free-solid-svg-icons';
-import { far } from '@fortawesome/free-regular-svg-icons';
-import { library as legacyLibrary } from '@fortawesome/fontawesome-svg-core';
+import {FlexLayoutModule} from "@angular/flex-layout";
+import { NavbarComponent } from './navbar/navbar.component';
+import { MatMenuModule} from '@angular/material/menu';
 @NgModule({
   declarations: [
     HomeComponent,
@@ -20,6 +20,7 @@ import { library as legacyLibrary } from '@fortawesome/fontawesome-svg-core';
     MoviesComponent,
     PlayoutComponent,
     HeaderComponent,
+    NavbarComponent,
 
   ],
   imports: [
@@ -28,8 +29,9 @@ import { library as legacyLibrary } from '@fortawesome/fontawesome-svg-core';
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,
-    FontAwesomeModule
-
+    FontAwesomeModule,
+    FlexLayoutModule,
+    MatMenuModule
 
   ]
 })

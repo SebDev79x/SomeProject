@@ -5,7 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { MoviesComponent } from './movies/movies.component';
 import { PlayoutComponent } from './playout/playout.component';
 
-// Brancher au routage principal, app-routing.module.ts
+// Branché au routage principal, app-routing.module.ts
 const routes: Routes = [
   {path:'',component:PlayoutComponent,children:[
     {path:'',redirectTo:'home',pathMatch:'full'},

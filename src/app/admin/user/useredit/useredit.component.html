@@ -1,1 +1,38 @@
-<p>useredit works!</p>
+<p>useredit works! FORMULAIRE DE MODIFICATION USER</p>
+<form name="form" #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()">
+  <div class="group">
+    <label for="firstname">Prénom</label>
+    <input type="text" id="firstname" name="firstname" [(ngModel)]="user.firstname" #firstname="ngModel" required>
+    <div class="form-error" *ngIf="firstname.errors && f.submitted">firstname required</div>
+  </div>
+  <div class="group">
+    <label for="lastname">Nom</label>
+    <input type="text" id="lastname" name="lastname" [(ngModel)]="user.lastname" #lastname="ngModel" required>
+    <div class="form-error" *ngIf="lastname.errors && f.submitted">lastname required</div>
+  </div>
+  <div class="group">
+    <label for="username">Pseudo</label>
+    <input type="text" id="username" name="username" [(ngModel)]="user.username" #username="ngModel" required>
+    <div class="form-error" *ngIf="username.errors && f.submitted">username required</div>
+  </div>
+  <div class="group">
+    <label for="email">Email</label>
+    <input type="text" id="email" name="email" [(ngModel)]="user.email" #email="ngModel" required>
+    <div class="form-error" *ngIf="email.errors && f.submitted">email required</div>
+  </div>
+  <div class="group">
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" [(ngModel)]="user.password" #password="ngModel" required
+      minlength="5">
+    <div class="form-error" *ngIf="password.errors && f.submitted">
+      <!--ARRAY et non plus objet, password.errors.required ne fonctionne plus après Angular 13-->
+      <div *ngIf="password.errors['required']">password required</div>
+      <div *ngIf="password.errors['minlength']">password not valid, too short</div>
+    </div>
+
+
+  </div>
+  <div class="group">
+    <button>Login</button>
+  </div>
+</form>

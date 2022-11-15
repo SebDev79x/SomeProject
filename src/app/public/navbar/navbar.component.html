@@ -1,0 +1,39 @@
+    <mat-toolbar>
+      <a routerLink="/home" style="text-decoration: none;">
+       <span style="font-size: 30px;">COMPANY</span>
+         </a>
+      <span class="fill-remaining-space"></span>
+      <div fxLayout="row" fxHide fxShow.gt-sm>
+
+          <div class="dropdown">
+             <button  mat-raised-button>Menu</button>
+
+             <div class="dropdown-content">
+              <div class="shape"></div>
+              <a href="#">MISC 1</a>
+              <a href="#">MISC 2</a>
+              <a href="#">MISC 3</a>
+              <a href="#">MISC 4</a>
+
+            </div>
+          </div>
+
+
+             <button  routerLinkActive="active" [routerLink]="['/home']" mat-raised-button>Accueil</button>
+             <button  routerLinkActive="active" [routerLink]="['/movies']" mat-raised-button>Films</button>
+             <button  routerLinkActive="active" [routerLink]="['/contact']" mat-raised-button>Contact</button>
+             <button  routerLinkActive="active" [routerLink]="['/admin']" mat-raised-button>Admin</button>
+      </div>
+      <button mat-button [mat-menu-trigger-for]="menu" fxShow fxHide.gt-sm>
+       <mat-icon>menu</mat-icon>
+      </button>
+  </mat-toolbar>
+  <mat-menu x-position="before" #menu>
+      <button  routerLinkActive="active"  [routerLink]="['/home']" mat-menu-item>Accueil</button>
+      <button  routerLinkActive="active"  [routerLink]="['/movies']" mat-menu-item>Films</button>
+      <button  routerLinkActive="active"  [routerLink]="['/contact']" mat-menu-item>Contact</button>
+      <button  routerLinkActive="active"  [routerLink]="['/admin']" mat-menu-item>Admin</button>
+  </mat-menu>
+
+
+
